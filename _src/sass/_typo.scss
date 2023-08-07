@@ -1,0 +1,20 @@
+%paragraph {
+    font-size: var(--fsz-3);
+    color: var(--grey-2);
+    font-weight: 400;
+    line-height: 150%;
+}
+
+%paragraph--emphasis {
+    @extend %paragraph;
+    color: var(--grey-1);
+    font-weight: 500;
+}
+
+%small {
+    font-size: var(--fsz-5);
+    color: var(--grey-3);
+}
+
+p { @extend %paragraph; }
+strong { @extend %paragraph--emphasis; }

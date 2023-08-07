@@ -1,0 +1,20 @@
+.grid {
+    @include for-size(tablet-landscape-up) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .half {
+        grid-column: span 1 !important;
+    }
+
+    img {
+        width: 100%;
+        background: var(--grey-5);
+    }
+
+    li.col-2 {
+        grid-column: span 2;
+    }
+}

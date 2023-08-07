@@ -1,0 +1,57 @@
+@mixin for-size($range) {
+    $phone-upper-boundary: 600px;
+    $tablet-portrait-upper-boundary: 900px;
+    $tablet-landscape-upper-boundary: 1200px;
+    $desktop-upper-boundary: 1800px;
+  
+    @if $range == phone-only {
+      @media (max-width: #{$phone-upper-boundary - 1}) { @content; }
+    } @else if $range == tablet-only {
+        @media (max-width: #{$tablet-portrait-upper-boundary - 1}) { @content; }
+    } @else if $range == tablet-portrait-up {
+      @media (min-width: $phone-upper-boundary) { @content; }
+    } @else if $range == tablet-landscape-up {
+      @media (min-width: $tablet-portrait-upper-boundary) { @content; }
+    } @else if $range == desktop-up {
+      @media (min-width: $tablet-landscape-upper-boundary) { @content; }
+    } @else if $range == big-desktop-up {
+      @media (min-width: $desktop-upper-boundary) { @content; }
+    }
+}
+
+:root {
+    --StormGrey-3 : #0A0B0D;
+    --StormGrey-30 : #404851;
+    --StormGrey-50 : #6B7888;
+    --StormGrey-70 : #A1ADBB;
+    --StormGrey-80 : #BFC8D2;
+
+    --grey-1 : var(--StormGrey-3);
+    --grey-2 : var(--StormGrey-30);
+    --grey-3 : var(--StormGrey-50);
+    --grey-4 : var(--StormGrey-70);
+    --grey-5 : var(--StormGrey-80);
+
+    --fsz-1 : 2.25rem;
+    --fsz-2 : 1.25rem;
+    --fsz-3 : 1.125rem;
+    --fsz-4 : 1rem;
+    --fsz-5 : 0.85rem;
+    
+    --padding : 1rem;
+    --directionSwap : column;
+    --headerHeight: 90vh;
+    --postTitle: var(--fsz-1);
+
+    @include for-size(tablet-portrait-up) {
+        --padding : 2.5rem;
+        --headerHeight: 100vh;
+        --postTitle: var(--fsz-2);
+    }
+    @include for-size(tablet-landscape-up) {
+        --directionSwap : row;
+    }
+    @include for-size(desktop-up) {
+        --padding : 5rem;
+    }
+}

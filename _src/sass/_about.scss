@@ -1,0 +1,35 @@
+.about {   
+    @include for-size(tablet-landscape-up) {
+        gap: 1rem;
+        display: grid;
+        grid-template-columns: 380px 1fr 1fr 1fr;
+        justify-content: space-between;
+        align-items: end;
+        padding-bottom: 0;
+    }
+
+    &__content {
+        @extend %paragraph;
+        grid-column: 1;
+        
+        @include for-size(tablet-only) {
+            margin-bottom: 2rem;
+        }
+
+        p:first-child {
+            margin-bottom: 1rem;
+        }
+    }
+
+    img {
+        grid-column: 2 / 5;
+        width: 100%;
+        height: calc(100vh - 5rem);
+        object-fit: cover;
+        object-position: center right;
+
+        @include for-size(desktop-up) {
+            grid-column: 3 / 5;
+        }
+    }
+}

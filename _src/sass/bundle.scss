@@ -1,0 +1,41 @@
+@import "reset", "variables", "typo", "links", "header", "about", "snapshots", "cases";
+
+
+body {
+    // font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: 'Inter';
+}
+
+main {
+    @include for-size(tablet-portrait-up) {
+        transform: translateY(-2.5rem);
+    }
+    
+    padding: 0 var(--padding) calc(var(--padding) - 2.5rem) var(--padding);
+}
+
+
+
+figcaption {
+    visibility: hidden;
+}
+
+.mobile-only {
+    display: none;
+    visibility: hidden;
+
+    @include for-size(tablet-only) {
+        display: inline-block;
+        visibility: visible;
+    }
+}
+
+.tablet-only {
+    display: inline-block;
+    visibility: visible;
+
+    @include for-size(tablet-only) {
+        display: none;
+        visibility: hidden;
+    }
+}

@@ -1,0 +1,42 @@
+.cases {
+    min-height: 80vh;
+}
+
+.case {
+    &__link { 
+        display: block;
+
+        &::after {
+            margin-left: 0 !important;
+        }
+    }
+
+    &__imgWrapper {
+        overflow: hidden;
+        display: flex;
+    }
+
+    &__thumb {
+        object-fit: contain;
+        object-position: center center;
+        transition: all .3s ease-in-out;
+        max-height: 50vh;
+    }
+
+    &__title {
+        margin-top: .5rem;
+        font-size: var(--fsz-2);
+    }
+
+    &__format {
+        @extend %small;
+        margin-top: .25rem;
+    }
+
+    &:hover {
+        .case__thumb {
+            transform: scale(1.03);
+            transform-origin: center center;
+        }
+    }
+}
